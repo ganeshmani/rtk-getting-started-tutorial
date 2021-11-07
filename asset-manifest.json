@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/rtk-getting-started/static/css/main.4288c335.chunk.css",
+    "main.js": "/rtk-getting-started/static/js/main.c963238f.chunk.js",
+    "main.js.map": "/rtk-getting-started/static/js/main.c963238f.chunk.js.map",
+    "runtime-main.js": "/rtk-getting-started/static/js/runtime-main.745c2000.js",
+    "runtime-main.js.map": "/rtk-getting-started/static/js/runtime-main.745c2000.js.map",
+    "static/js/2.1118ee3b.chunk.js": "/rtk-getting-started/static/js/2.1118ee3b.chunk.js",
+    "static/js/2.1118ee3b.chunk.js.map": "/rtk-getting-started/static/js/2.1118ee3b.chunk.js.map",
+    "index.html": "/rtk-getting-started/index.html",
+    "static/css/main.4288c335.chunk.css.map": "/rtk-getting-started/static/css/main.4288c335.chunk.css.map",
+    "static/js/2.1118ee3b.chunk.js.LICENSE.txt": "/rtk-getting-started/static/js/2.1118ee3b.chunk.js.LICENSE.txt",
+    "static/media/logo.b2e5a01e.svg": "/rtk-getting-started/static/media/logo.b2e5a01e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.745c2000.js",
+    "static/js/2.1118ee3b.chunk.js",
+    "static/css/main.4288c335.chunk.css",
+    "static/js/main.c963238f.chunk.js"
+  ]
+}
