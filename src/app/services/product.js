@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const baseUrl = `https://my-json-server.typicode.com/ganeshmani/rtk-getting-started-tutorial`;
+const baseUrl = `http://localhost:5000`;
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -14,7 +14,11 @@ export const productsApi = createApi({
         return {
           url: `/products`,
           method: "POST",
-          body,
+          headers: {
+            "Accept" : "application/json",
+            "Content-Type": "application/json",
+          },
+          body
         };
       },
       invalidatesTags: ["Product"],
