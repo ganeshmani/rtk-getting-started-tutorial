@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 // import "./App.css";
 import './index.css';
-import Product from './features/Product'
+import Product from './features/product'
 function App() {
   return (
     <div className="container mx-auto p-4">
