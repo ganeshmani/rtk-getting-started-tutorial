@@ -18,7 +18,6 @@ const Product = () => {
   const { data, isLoading } = useFetchAllProductsQuery();
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
-  const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
 
   const columns = React.useMemo(
     () => [
@@ -49,9 +48,6 @@ const Product = () => {
     setShowCreateProductModal(!showCreateProductModal);
   };
 
-  const _handleProductUpdate = () => {
-    setShowUpdateProductModal(!showUpdateProductModal);
-  };
 
   return (
     <Fragment>
