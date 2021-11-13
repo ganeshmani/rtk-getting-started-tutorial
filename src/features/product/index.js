@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { css } from "@emotion/react";
 import Table, {
-  AvatarCell,
   SelectColumnFilter,
   StatusPill,
 } from "./productsTable"; // new
@@ -16,7 +15,7 @@ const override = css`
 `;
 
 const Product = () => {
-  const { data, isError, isLoading, isSuccess } = useFetchAllProductsQuery();
+  const { data, isLoading } = useFetchAllProductsQuery();
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);

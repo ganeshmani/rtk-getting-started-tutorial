@@ -11,14 +11,14 @@ const CreateProduct = ({ isOpen,handleModalClick }) => {
         stock : ""
     })
 
-    const [createProduct,{data,isSuccess,isLoading,isError,error}] = useCreateProductMutation()
+    const [createProduct,{data,isSuccess}] = useCreateProductMutation()
 
     useEffect(() => {
         if(isSuccess){
             toast.success('Product Created Successfully')
             handleModalClick()
         }
-    },[data,isSuccess])
+    },[data,isSuccess,handleModalClick])
 
     const _handleOnChange = (e) => {
         setState({ ...state, [e.target.name] : e.target.value })
