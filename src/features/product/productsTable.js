@@ -15,7 +15,7 @@ import {
 } from "@heroicons/react/solid";
 import { Button, PageButton } from "../../shared/Button";
 import { classNames } from "../../utils/index";
-import { SortIcon, SortUpIcon, SortDownIcon } from "../../shared/Icons";
+import { SortIcon, SortUpIcon, SortDownIcon } from "../../shared/Icon";
 
 // Define a default UI for filtering
 function GlobalFilter({
@@ -34,7 +34,7 @@ function GlobalFilter({
       <span className="text-gray-700">Search: </span>
       <input
         type="text"
-        className="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        className="rounded-md px-3 py-2 border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         value={value || ""}
         onChange={(e) => {
           setValue(e.target.value);
@@ -66,7 +66,7 @@ export function SelectColumnFilter({
     <label className="flex gap-x-2 items-baseline">
       <span className="text-gray-700">{render("Header")}: </span>
       <select
-        className="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        className="rounded-md px-3 py-2 border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         name={id}
         id={id}
         value={filterValue}
@@ -124,7 +124,7 @@ export function AvatarCell({ value, column, row }) {
   );
 }
 
-function Table({ columns, data, handleCreateUserClick }) {
+function Table({ columns, data, handleCreateProductClick }) {
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -176,7 +176,18 @@ function Table({ columns, data, handleCreateUserClick }) {
             ) : null
           )
         )}
+
+        <div className="ml-auto">
+          <button
+            type="button"
+            onClick={handleCreateProductClick}
+            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Create Product
+          </button>
+        </div>
       </div>
+
       {/* table */}
       <div className="mt-4 flex flex-col">
         <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">

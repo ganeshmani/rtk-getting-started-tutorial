@@ -1,11 +1,18 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "hello",
-        "category" : "one",
-        "price" : 100,
-        "stock" : 200
-      }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "hello",
+      "category": "one",
+      "price": 100,
+      "stock": 200
+    },
+    {
+      "name": "Sam",
+      "category": "Clothing",
+      "price": "111",
+      "stock": "111",
+      "id": 2
+    }
+  ]
 }
