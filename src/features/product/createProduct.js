@@ -18,7 +18,7 @@ const CreateProduct = ({ isOpen,handleModalClick }) => {
             toast.success('Product Created Successfully')
             handleModalClick()
         }
-    },[data,isSuccess,handleModalClick])
+    },[data,isSuccess])
 
     const _handleOnChange = (e) => {
         setState({ ...state, [e.target.name] : e.target.value })
