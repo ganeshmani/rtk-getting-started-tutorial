@@ -13,13 +13,6 @@ const CreateProduct = ({ isOpen,handleModalClick }) => {
 
     const [createProduct,{data,isSuccess}] = useCreateProductMutation()
 
-    useEffect(() => {
-        if(isSuccess){
-            toast.success('Product Created Successfully')
-            handleModalClick()
-        }
-    },[data,isSuccess])
-
     const _handleOnChange = (e) => {
         setState({ ...state, [e.target.name] : e.target.value })
     }
@@ -28,6 +21,9 @@ const CreateProduct = ({ isOpen,handleModalClick }) => {
         try {
             e.preventDefault()
             await createProduct({...state})
+
+            toast.success('Product Created Successfully')
+            handleModalClick()
         }
         catch(e){
             toast.error("Error while creating an user")
