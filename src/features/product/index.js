@@ -15,7 +15,7 @@ const override = css`
   border-color: red;
 `;
 
-const Products = () => {
+const Product = () => {
   const { data, isError, isLoading, isSuccess } = useFetchAllProductsQuery();
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
@@ -76,4 +76,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Product;
