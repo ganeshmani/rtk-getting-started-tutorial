@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const baseUrl = `http://localhost:5000`;
+const baseUrl = `https://rtk-gettingstarted-backend.herokuapp.com/`;
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -8,6 +8,7 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
     fetchAllProducts: builder.query({
       query: () => `/products/`,
+      providesTags: ["Product"]
     }),
     createProduct: builder.mutation({
       query(body) {
