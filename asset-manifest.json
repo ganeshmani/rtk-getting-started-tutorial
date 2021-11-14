@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/rtk-getting-started-tutorial/static/css/main.e411d5c6.chunk.css",
-    "main.js": "/rtk-getting-started-tutorial/static/js/main.92acfb38.chunk.js",
-    "main.js.map": "/rtk-getting-started-tutorial/static/js/main.92acfb38.chunk.js.map",
+    "main.css": "/rtk-getting-started-tutorial/static/css/main.3adf91a4.chunk.css",
+    "main.js": "/rtk-getting-started-tutorial/static/js/main.e2c3de25.chunk.js",
+    "main.js.map": "/rtk-getting-started-tutorial/static/js/main.e2c3de25.chunk.js.map",
     "runtime-main.js": "/rtk-getting-started-tutorial/static/js/runtime-main.52ffe7d5.js",
     "runtime-main.js.map": "/rtk-getting-started-tutorial/static/js/runtime-main.52ffe7d5.js.map",
-    "static/js/2.2852bf21.chunk.js": "/rtk-getting-started-tutorial/static/js/2.2852bf21.chunk.js",
-    "static/js/2.2852bf21.chunk.js.map": "/rtk-getting-started-tutorial/static/js/2.2852bf21.chunk.js.map",
+    "static/js/2.92684bea.chunk.js": "/rtk-getting-started-tutorial/static/js/2.92684bea.chunk.js",
+    "static/js/2.92684bea.chunk.js.map": "/rtk-getting-started-tutorial/static/js/2.92684bea.chunk.js.map",
     "index.html": "/rtk-getting-started-tutorial/index.html",
-    "static/css/main.e411d5c6.chunk.css.map": "/rtk-getting-started-tutorial/static/css/main.e411d5c6.chunk.css.map",
-    "static/js/2.2852bf21.chunk.js.LICENSE.txt": "/rtk-getting-started-tutorial/static/js/2.2852bf21.chunk.js.LICENSE.txt"
+    "static/css/main.3adf91a4.chunk.css.map": "/rtk-getting-started-tutorial/static/css/main.3adf91a4.chunk.css.map",
+    "static/js/2.92684bea.chunk.js.LICENSE.txt": "/rtk-getting-started-tutorial/static/js/2.92684bea.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.52ffe7d5.js",
-    "static/js/2.2852bf21.chunk.js",
-    "static/css/main.e411d5c6.chunk.css",
-    "static/js/main.92acfb38.chunk.js"
+    "static/js/2.92684bea.chunk.js",
+    "static/css/main.3adf91a4.chunk.css",
+    "static/js/main.e2c3de25.chunk.js"
   ]
 }
