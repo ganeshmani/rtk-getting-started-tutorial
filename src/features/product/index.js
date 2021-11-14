@@ -7,6 +7,7 @@ import Table, {
 import { useFetchAllProductsQuery } from "../../app/services/product";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import CreateProduct from "./createProduct";
+import UpdateProduct from "./updateProduct";
 
 const override = css`
   display: block;
@@ -18,6 +19,9 @@ const Product = () => {
   const { data, isLoading } = useFetchAllProductsQuery();
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
+  const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const columns = React.useMemo(
     () => [
@@ -40,6 +44,16 @@ const Product = () => {
         Header: "Stock",
         accessor: "stock",
       },
+      {
+        Header : 'Action',
+        Cell:  ({ value, column, row }) => {
+            return (
+            <a href="" onClick={(e) => handleUpdateClick({e,data : row.original})} className="text-indigo-600 hover:text-indigo-900">
+              Edit
+            </a>
+          )
+        }
+    }
     ],
     []
   );
@@ -47,6 +61,17 @@ const Product = () => {
   const _handleProductCreate = () => {
     setShowCreateProductModal(!showCreateProductModal);
   };
+
+  const _handleProductUpdate = () => {
+    setShowUpdateProductModal(!showUpdateProductModal);
+  }
+
+  const handleUpdateClick = ({e,data}) => {
+    e.preventDefault();
+    setSelectedProduct(data)
+    setShowUpdateProductModal(!showUpdateProductModal)
+}
+
 
 
   return (
@@ -67,6 +92,7 @@ const Product = () => {
       ) : null}
 
       <CreateProduct isOpen={showCreateProductModal} handleModalClick={_handleProductCreate}/>
+      <UpdateProduct  isOpen={showUpdateProductModal} selectedProduct={selectedProduct} handleModalClick={_handleProductUpdate}/>
     </Fragment>
   );
 };
