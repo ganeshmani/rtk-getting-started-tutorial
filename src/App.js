@@ -1,9 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
 // import "./App.css";
 import './index.css';
-import Products from "./features/Product/index";
+import Products from "./features/product/index";
 
 function App() {
   return (

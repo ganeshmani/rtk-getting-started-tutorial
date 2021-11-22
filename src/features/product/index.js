@@ -1,11 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { css } from "@emotion/react";
 import Table, {
   AvatarCell,
   SelectColumnFilter,
   StatusPill,
 } from "./productsTable"; // new
-import { useFetchAllProductsQuery } from "../../app/services/product";
+import { useSelector,useDispatch } from 'react-redux'
+// import { useFetchAllProductsQuery } from "../../app/services/product";
+import { fetchProducts,productSelector,apiStateSelector } from './productSlice'
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import CreateProduct from "./createProduct";
 
@@ -16,10 +18,24 @@ const override = css`
 `;
 
 const Products = () => {
-  const { data, isError, isLoading, isSuccess } = useFetchAllProductsQuery();
+  const dispatch = useDispatch()
+  // const { data, isError, isLoading, isSuccess } = useFetchAllProductsQuery();
+
+  const productsData = useSelector(productSelector)
+  const apiState = useSelector(apiStateSelector)
+  console.log("apiState",apiState)
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
+
+  useEffect(() => {
+    console.log("coming inside useEffect")
+    async function fetchData() {
+      dispatch(fetchProducts())
+    }
+
+    fetchData()
+  },[])
 
   const columns = React.useMemo(
     () => [
@@ -56,17 +72,17 @@ const Products = () => {
 
   return (
     <Fragment>
-      {isLoading ? (
+      {apiState.loading ? (
         <ClimbingBoxLoader
           color={"#4045B4"}
-          loading={isLoading}
+          loading={apiState.loading}
           css={override}
           size={15}
         />
-      ) : data ? (
+      ) : productsData ? (
         <Table
           columns={columns}
-          data={data}
+          data={productsData}
           handleCreateProductClick={_handleProductCreate}
         />
       ) : null}
