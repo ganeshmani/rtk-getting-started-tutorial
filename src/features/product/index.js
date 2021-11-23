@@ -5,11 +5,16 @@ import Table, {
   SelectColumnFilter,
   StatusPill,
 } from "./productsTable"; // new
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 // import { useFetchAllProductsQuery } from "../../app/services/product";
-import { fetchProducts,productSelector,apiStateSelector } from './productSlice'
+import {
+  fetchProducts,
+  productSelector,
+  apiStateSelector,
+} from "./productSlice";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import CreateProduct from "./createProduct";
+import UpdateProduct from "./updateProduct";
 
 const override = css`
   display: block;
@@ -18,24 +23,35 @@ const override = css`
 `;
 
 const Products = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // const { data, isError, isLoading, isSuccess } = useFetchAllProductsQuery();
 
-  const productsData = useSelector(productSelector)
-  const apiState = useSelector(apiStateSelector)
-  console.log("apiState",apiState)
+  const productsData = useSelector(productSelector);
+  const apiState = useSelector(apiStateSelector);
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
   const [showUpdateProductModal, setShowUpdateProductModal] = useState(false);
 
   useEffect(() => {
-    console.log("coming inside useEffect")
+    console.log("coming inside useEffect");
     async function fetchData() {
-      dispatch(fetchProducts())
+      dispatch(fetchProducts());
     }
 
-    fetchData()
-  },[])
+    fetchData();
+  }, []);
+
+  const _handleProductUpdate = () => {
+    setShowUpdateProductModal(!showUpdateProductModal);
+  };
+
+  const handleUpdateClick = ({ e, data }) => {
+    e.preventDefault();
+    setSelectedProduct(data);
+    setShowUpdateProductModal(!showUpdateProductModal);
+  };
 
   const columns = React.useMemo(
     () => [
@@ -58,16 +74,26 @@ const Products = () => {
         Header: "Stock",
         accessor: "stock",
       },
+      {
+        Header: "Action",
+        Cell: ({ value, column, row }) => {
+          return (
+            <a
+              href=""
+              onClick={(e) => handleUpdateClick({ e, data: row.original })}
+              className="text-indigo-600 hover:text-indigo-900"
+            >
+              Edit
+            </a>
+          );
+        },
+      },
     ],
     []
   );
 
   const _handleProductCreate = () => {
     setShowCreateProductModal(!showCreateProductModal);
-  };
-
-  const _handleProductUpdate = () => {
-    setShowUpdateProductModal(!showUpdateProductModal);
   };
 
   return (
@@ -87,7 +113,15 @@ const Products = () => {
         />
       ) : null}
 
-      <CreateProduct isOpen={showCreateProductModal} handleModalClick={_handleProductCreate}/>
+      <CreateProduct
+        isOpen={showCreateProductModal}
+        handleModalClick={_handleProductCreate}
+      />
+      <UpdateProduct
+        isOpen={showUpdateProductModal}
+        selectedProduct={selectedProduct}
+        handleModalClick={_handleProductUpdate}
+      />
     </Fragment>
   );
 };
