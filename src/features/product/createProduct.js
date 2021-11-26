@@ -19,13 +19,11 @@ const CreateProduct = ({ isOpen, handleModalClick }) => {
   // const [createProduct,{data,isSuccess,isLoading,isError,error}] = useCreateProductMutation()
 
   useEffect(() => {
-      console.log("createProductApiState",createProductApiState)
     if (createProductApiState && createProductApiState.isSuccess) {
       toast.success("Product Created Successfully");
       handleModalClick();
-    } else if (createProductApiState && createProductApiState.loading) {
-      toast.loading("Creating Product...");
-    } else if (createProductApiState && createProductApiState.isError) {
+    }
+    if (createProductApiState && createProductApiState.isError) {
       toast.error(createProductApiState.error);
     }
   }, [createProductApiState]);
